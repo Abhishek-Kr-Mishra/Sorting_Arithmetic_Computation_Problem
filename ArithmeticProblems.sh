@@ -15,3 +15,6 @@ echo "Value of Operation 2 is: $operation2"
 
 operation3=$(( $c + ($a/$b) ))
 echo "Value of Operation 3 is: $operation3"
+
+operation4=$(( ($a%$b) + $c ))
+echo "Value of Operation 4 is: $operation4"
