@@ -30,11 +30,28 @@ arithmeticDictionary[3]=$operation4
 
 
 length=${#arithmeticDictionary[@]}
-for (( i=0; i<4; i++ ))
+for (( i=0; i<$length; i++ ))
 do
 	arithmeticArray[$i]=${arithmeticDictionary[$i]}
 done
 
-echo "Value Stored into Array"
+echo "Value of Array without Sorting Operation"
 echo ${arithmeticArray[@]}
+
+for (( j=1; j<$length; j++ ))
+do
+		key=${arithmeticArray[$j]}
+                hole=$(( $j-1 ))
+                while (( $hole>=0 && ${arithmeticArray[hole]}<$key ))
+                do
+                        arithmeticArray[$hole+1]=${arithmeticArray[hole]}
+                        hole=$(( $hole-1 ))
+                done
+                arithmeticArray[$hole+1]=$key
+done
+
+echo "Array After Descending Order"
+echo ${arithmeticArray[@]}
+
+
 
