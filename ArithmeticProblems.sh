@@ -7,5 +7,8 @@ read a
 read b
 read c
 
-UC1=$(( $a + ($b*$c) ))
-echo "Value of UC1 is: $UC1"
+operation1=$(( $a + ($b*$c) ))
+echo "Value of Operation 1 is: $operation1"
+
+operation2=$(( ($a*$b) + $c ))
+echo "Value of Operation 2 is: $operation2"
