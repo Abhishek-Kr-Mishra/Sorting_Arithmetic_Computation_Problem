@@ -8,6 +8,7 @@ read b
 read c
 
 declare -A arithmeticDictionary
+declare -a arithmeticArray
 
 operation1=$(( $a + ($b*$c) ))
 echo "Value of Operation 1 is: $operation1"
@@ -27,5 +28,13 @@ operation4=$(( ($a%$b) + $c ))
 echo "Value of Operation 4 is: $operation4"
 arithmeticDictionary[3]=$operation4
 
-echo "Operations Values in Dictionary is: "
-echo ${arithmeticDictionary[@]}
+
+length=${#arithmeticDictionary[@]}
+for (( i=0; i<4; i++ ))
+do
+	arithmeticArray[$i]=${arithmeticDictionary[$i]}
+done
+
+echo "Value Stored into Array"
+echo ${arithmeticArray[@]}
+
