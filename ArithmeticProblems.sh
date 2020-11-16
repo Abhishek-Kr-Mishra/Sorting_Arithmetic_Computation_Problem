@@ -50,8 +50,21 @@ do
                 arithmeticArray[$hole+1]=$key
 done
 
-echo "Array After Descending Order"
+echo "Array In Descending Order"
 echo ${arithmeticArray[@]}
 
 
+for (( j=1; j<$length; j++ ))
+do
+                key=${arithmeticArray[$j]}
+                hole=$(( $j-1 ))
+                while (( $hole>=0 && ${arithmeticArray[hole]}>$key ))
+                do
+                        arithmeticArray[$hole+1]=${arithmeticArray[hole]}
+                        hole=$(( $hole-1 ))
+                done
+                arithmeticArray[$hole+1]=$key
+done
 
+echo "Array In Asscending Order"
+echo ${arithmeticArray[@]}
